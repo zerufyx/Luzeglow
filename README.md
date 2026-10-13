@@ -1,7 +1,7 @@
 # Luzé Glow — propuesta
 
 Catálogo de servicios de cejas para **Luzé Glow** (Luciana Izquierdo, Nokomis FL): servicios con precio, cita armada con el total y envío por Instagram o WhatsApp. **Propuesta** de Zerufy Studio, todavía no es cliente.
-**Vista previa:** https://zerufyx.github.io/Luz-glow/ (lleva `noindex`, no aparece en Google)
+**Vista previa:** https://zerufyx.github.io/Luzeglow/ (lleva `noindex`, no aparece en Google)
 
 Todo está en `index.html` (fotos y logo incluidos). No usa Supabase.
 
