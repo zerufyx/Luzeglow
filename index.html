@@ -274,11 +274,14 @@ section{position:relative}
 .chips{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
 .chips button{padding:11px 10px;border:1px solid var(--rule-light);border-radius:2px;background:#fff;font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);transition:background-color .3s,color .3s,border-color .3s}
 .chips button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--cream)}
+.chips-time{grid-template-columns:repeat(3,minmax(0,1fr))}
+.chips-time .hr{text-transform:none;letter-spacing:.04em;font-size:13px;font-weight:400;padding-inline:4px;font-variant-numeric:tabular-nums}
 .sheet-foot{padding:14px 22px calc(16px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--rule-light);display:grid;gap:10px}
 .sheet-help{margin:0;font-size:13px;color:var(--ink-mute);text-align:center}
 .wa-ico{width:16px;height:16px;flex:none}
-.sheet-btns{display:grid;grid-template-columns:1fr;gap:10px}
-@media (min-width:480px){.sheet-btns{grid-template-columns:1fr 1fr}.sheet-btns .btn{padding-inline:12px;letter-spacing:.16em}}
+.sheet-btns{display:grid;grid-template-columns:1fr;gap:12px;justify-items:center}
+.ig-alt{font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-mute);text-decoration:none;border-bottom:1px solid var(--rule-light);padding:4px 0 3px;transition:color .3s,border-color .3s}
+.ig-alt:hover{color:var(--ink);border-color:var(--ink)}
 
 .toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));z-index:70;max-width:calc(100% - 32px);padding:12px 18px;border-radius:2px;background:var(--ink);color:var(--cream);font-size:14px;transform:translate(-50%,20px);opacity:0;pointer-events:none;transition:opacity .35s,transform .45s var(--ease)}
 .toast.on{opacity:1;transform:translate(-50%,0)}
@@ -388,7 +391,7 @@ section{position:relative}
     </svg>
     <div class="hero-ctas" style="--i:0">
       <a class="btn btn-solid" href="#servicios"><span data-i18n="hero.cta1">Services</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
-      <a class="btn btn-ghost" href="https://ig.me/m/luzeglowstudio" target="_blank" rel="noopener" data-i18n="hero.cta2">Book</a>
+      <a class="btn btn-ghost" id="heroBook" href="https://wa.me/19412875160" target="_blank" rel="noopener" data-i18n="hero.cta2">Book</a>
     </div>
   </div>
   <a class="cue" href="#servicios" aria-label="Services" data-i18n-aria="hero.cta1"><i aria-hidden="true"></i></a>
@@ -544,12 +547,12 @@ section{position:relative}
   <div class="wrap book-grid">
     <header class="sec-head" data-reveal>
       <span class="eb" data-i18n="eb.booking">How to book</span><h2 class="sh" data-i18n="sh.booking">Booking</h2>
-      <p class="sec-intro" data-i18n="booking.intro">Booking is done by message, on Instagram or WhatsApp.</p>
+      <p class="sec-intro" data-i18n="booking.intro">Booking is done by message, on WhatsApp or Instagram.</p>
     </header>
     <div data-reveal>
       <ol class="flow">
         <li data-i18n="flow1">Choose your services above.</li>
-        <li data-i18n="flow2">Send it on Instagram or WhatsApp.</li>
+        <li data-i18n="flow2">Send it on WhatsApp or Instagram.</li>
         <li data-i18n="flow3">Luciana replies with an open day and time.</li>
       </ol>
       <dl class="info" style="margin-top:32px">
@@ -559,8 +562,8 @@ section{position:relative}
       </dl>
       <div class="book-ctas">
         <button type="button" class="btn btn-ink" id="startBooking"><span data-i18n="booking.start">Start my booking</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></button>
-        <a class="btn btn-line" href="https://ig.me/m/luzeglowstudio" target="_blank" rel="noopener" data-i18n="booking.dm">Message on Instagram</a>
         <a class="btn btn-line" href="https://wa.me/19412875160" target="_blank" rel="noopener"><svg class="wa-ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.2A9.8 9.8 0 0 0 3.6 17l-1.4 4.8 4.9-1.3A9.8 9.8 0 1 0 12 2.2Zm0 17.9a8.1 8.1 0 0 1-4.1-1.1l-.3-.2-2.9.8.8-2.8-.2-.3A8.1 8.1 0 1 1 12 20.1Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.6 6.6 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 2.9 2.9 0 0 0-.9 2.2 5.1 5.1 0 0 0 1.1 2.7 11.6 11.6 0 0 0 4.4 3.9c1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg><span>WhatsApp</span></a>
+        <a class="btn btn-line" href="https://ig.me/m/luzeglowstudio" target="_blank" rel="noopener" data-i18n="booking.dm">Message on Instagram</a>
       </div>
     </div>
   </div>
@@ -602,12 +605,20 @@ section{position:relative}
     <div class="pick-total"><span data-i18n="sheet.total">Estimated total</span><strong id="sheetTotal">$0</strong></div>
     <div class="field"><label for="fName" data-i18n="f.name">Your name</label><input id="fName" type="text" autocomplete="given-name"></div>
     <div class="field"><label for="fDate" data-i18n="f.date">Preferred date</label><input id="fDate" type="date"></div>
-    <fieldset class="field"><legend data-i18n="f.time">Time of day</legend>
-      <div class="chips" id="fTime">
+    <fieldset class="field"><legend data-i18n="f.time">Time</legend>
+      <div class="chips chips-time" id="fTime">
         <button type="button" data-v="any" aria-pressed="true" data-i18n="time.any">Any time</button>
-        <button type="button" data-v="morning" aria-pressed="false" data-i18n="time.morning">Morning</button>
-        <button type="button" data-v="afternoon" aria-pressed="false" data-i18n="time.afternoon">Afternoon</button>
-        <button type="button" data-v="evening" aria-pressed="false" data-i18n="time.evening">Evening</button>
+        <button type="button" class="hr" data-v="9" aria-pressed="false">9:00 AM</button>
+        <button type="button" class="hr" data-v="10" aria-pressed="false">10:00 AM</button>
+        <button type="button" class="hr" data-v="11" aria-pressed="false">11:00 AM</button>
+        <button type="button" class="hr" data-v="12" aria-pressed="false">12:00 PM</button>
+        <button type="button" class="hr" data-v="13" aria-pressed="false">1:00 PM</button>
+        <button type="button" class="hr" data-v="14" aria-pressed="false">2:00 PM</button>
+        <button type="button" class="hr" data-v="15" aria-pressed="false">3:00 PM</button>
+        <button type="button" class="hr" data-v="16" aria-pressed="false">4:00 PM</button>
+        <button type="button" class="hr" data-v="17" aria-pressed="false">5:00 PM</button>
+        <button type="button" class="hr" data-v="18" aria-pressed="false">6:00 PM</button>
+        <button type="button" class="hr" data-v="19" aria-pressed="false">7:00 PM</button>
       </div>
     </fieldset>
     <div class="field"><label for="fNote" data-i18n="f.note">Anything Luciana should know? (optional)</label><textarea id="fNote" rows="2"></textarea></div>
@@ -615,10 +626,10 @@ section{position:relative}
   </div>
   <footer class="sheet-foot">
     <div class="sheet-btns">
-      <a class="btn btn-ink btn-block" id="sendIg" href="https://ig.me/m/luzeglowstudio" target="_blank" rel="noopener" data-i18n="sheet.send">Send on Instagram</a>
-      <a class="btn btn-line btn-block" id="sendWa" href="https://wa.me/19412875160" target="_blank" rel="noopener"><svg class="wa-ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.2A9.8 9.8 0 0 0 3.6 17l-1.4 4.8 4.9-1.3A9.8 9.8 0 1 0 12 2.2Zm0 17.9a8.1 8.1 0 0 1-4.1-1.1l-.3-.2-2.9.8.8-2.8-.2-.3A8.1 8.1 0 1 1 12 20.1Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.6 6.6 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 2.9 2.9 0 0 0-.9 2.2 5.1 5.1 0 0 0 1.1 2.7 11.6 11.6 0 0 0 4.4 3.9c1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg><span data-i18n="sheet.wa">Send on WhatsApp</span></a>
+      <a class="btn btn-ink btn-block" id="sendWa" href="https://wa.me/19412875160" target="_blank" rel="noopener"><svg class="wa-ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.2A9.8 9.8 0 0 0 3.6 17l-1.4 4.8 4.9-1.3A9.8 9.8 0 1 0 12 2.2Zm0 17.9a8.1 8.1 0 0 1-4.1-1.1l-.3-.2-2.9.8.8-2.8-.2-.3A8.1 8.1 0 1 1 12 20.1Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.6 6.6 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 2.9 2.9 0 0 0-.9 2.2 5.1 5.1 0 0 0 1.1 2.7 11.6 11.6 0 0 0 4.4 3.9c1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg><span data-i18n="sheet.wa">Send on WhatsApp</span></a>
+      <a class="ig-alt" id="sendIg" href="https://ig.me/m/luzeglowstudio" target="_blank" rel="noopener" data-i18n="sheet.send">Or send it on Instagram</a>
     </div>
-    <p class="sheet-help" data-i18n="sheet.help">Instagram: we copy the message, press and hold in the chat to paste. WhatsApp opens with it already written.</p>
+    <p class="sheet-help" data-i18n="sheet.help">WhatsApp opens with your message ready to send. On Instagram we copy it so you just paste it.</p>
   </footer>
 </aside>
 
@@ -651,19 +662,19 @@ section{position:relative}
       "step1.t":"Map","step1.d":"Start, arch and tail are measured from your own features.",
       "step2.t":"Shape","step2.d":"Soft wax and tweezers clean up everything outside the map.",
       "step3.t":"Tint","step3.d":"Hybrid tint fills sparse spots and defines the final shape.",
-      "booking.intro":"Booking is done by message, on Instagram or WhatsApp.",
-      "flow1":"Choose your services above.","flow2":"Send it on Instagram or WhatsApp.","flow3":"Luciana replies with an open day and time.",
+      "booking.intro":"Booking is done by message, on WhatsApp or Instagram.",
+      "flow1":"Choose your services above.","flow2":"Send it on WhatsApp or Instagram.","flow3":"Luciana replies with an open day and time.",
       "info.studio":"Studio","booking.start":"Start my booking",
       "nav.services":"Services","nav.results":"Results",
       "foot.by":"By Luciana Izquierdo · Nokomis, FL","foot.credit":"Catalog by",
       "bar.selected":"{n} selected","bar.review":"Review",
       "sheet.title":"Your appointment","sheet.empty":"Nothing added yet. Pick a service to start.","sheet.total":"Estimated total",
-      "f.name":"Your name","f.date":"Preferred date","f.time":"Time of day","f.note":"Anything Luciana should know? (optional)","f.msg":"Your message",
+      "f.name":"Your name","f.date":"Preferred date","f.time":"Time","f.note":"Anything Luciana should know? (optional)","f.msg":"Your message",
       "time.any":"Any time","time.morning":"Morning","time.afternoon":"Afternoon","time.evening":"Evening",
-      "sheet.send":"Send on Instagram","sheet.wa":"Send on WhatsApp","sheet.help":"Instagram: we copy the message, press and hold in the chat to paste. WhatsApp opens with it already written.",
+      "sheet.send":"Or send it on Instagram","sheet.wa":"Send on WhatsApp","sheet.help":"WhatsApp opens with your message ready to send. On Instagram we copy it so you just paste it.",
       "rm":"Remove",
-      "msg.hello":"Hi Luciana! I'd like to book:","msg.helloEmpty":"Hi Luciana! I'd like to book an appointment.",
-      "msg.total":"Estimated total","msg.name":"Name","msg.when":"Preferred","msg.note":"Note","msg.flex":"Flexible",
+      "msg.hello":"Hi Luzé Glow! I'd like to book:","msg.helloEmpty":"Hi Luzé Glow! I'd like to book an appointment.",
+      "msg.total":"Estimated total","msg.name":"Name","msg.when":"Date & time","msg.note":"Note","msg.flex":"Flexible",
       "toast.copied":"Message copied. Paste it in the chat.","toast.manual":"Copy the message in the box, then paste it in Instagram.",
       "toast.handle":"@luzeglowstudio copied","toast.phone":"Number copied"
     },
@@ -688,19 +699,19 @@ section{position:relative}
       "step1.t":"Mapeo","step1.d":"Inicio, arco y cola se miden según tus propias facciones.",
       "step2.t":"Diseño","step2.d":"Cera suave y pinza limpian todo lo que queda fuera del mapa.",
       "step3.t":"Tinte","step3.d":"El tinte híbrido rellena espacios y define la forma final.",
-      "booking.intro":"Las reservas se hacen por mensaje, en Instagram o WhatsApp.",
-      "flow1":"Elige tus servicios arriba.","flow2":"Envíalo por Instagram o WhatsApp.","flow3":"Luciana te responde con un día y hora disponibles.",
+      "booking.intro":"Las reservas se hacen por mensaje, por WhatsApp o Instagram.",
+      "flow1":"Elige tus servicios arriba.","flow2":"Envíalo por WhatsApp o Instagram.","flow3":"Luciana te responde con un día y hora disponibles.",
       "info.studio":"Estudio","booking.start":"Empezar mi reserva",
       "nav.services":"Servicios","nav.results":"Resultados",
       "foot.by":"Por Luciana Izquierdo · Nokomis, FL","foot.credit":"Catálogo por",
       "bar.selected":"{n} seleccionado(s)","bar.review":"Revisar",
       "sheet.title":"Tu cita","sheet.empty":"Aún no has agregado nada. Elige un servicio para empezar.","sheet.total":"Total estimado",
-      "f.name":"Tu nombre","f.date":"Fecha preferida","f.time":"Horario","f.note":"¿Algo que Luciana deba saber? (opcional)","f.msg":"Tu mensaje",
+      "f.name":"Tu nombre","f.date":"Fecha preferida","f.time":"Hora","f.note":"¿Algo que Luciana deba saber? (opcional)","f.msg":"Tu mensaje",
       "time.any":"Cualquiera","time.morning":"Mañana","time.afternoon":"Tarde","time.evening":"Noche",
-      "sheet.send":"Enviar por Instagram","sheet.wa":"Enviar por WhatsApp","sheet.help":"Instagram: copiamos el mensaje, mantén presionado en el chat para pegar. WhatsApp se abre con el mensaje ya escrito.",
+      "sheet.send":"O envíalo por Instagram","sheet.wa":"Enviar por WhatsApp","sheet.help":"WhatsApp se abre con tu mensaje listo para enviar. En Instagram lo copiamos para que solo lo pegues.",
       "rm":"Quitar",
-      "msg.hello":"¡Hola Luciana! Quiero reservar:","msg.helloEmpty":"¡Hola Luciana! Quiero reservar una cita.",
-      "msg.total":"Total estimado","msg.name":"Nombre","msg.when":"Preferencia","msg.note":"Nota","msg.flex":"Flexible",
+      "msg.hello":"¡Hola, Luzé Glow! Quiero reservar:","msg.helloEmpty":"¡Hola, Luzé Glow! Quiero reservar una cita.",
+      "msg.total":"Total estimado","msg.name":"Nombre","msg.when":"Fecha y hora","msg.note":"Nota","msg.flex":"Flexible",
       "toast.copied":"Mensaje copiado. Pégalo en el chat.","toast.manual":"Copia el mensaje del recuadro y pégalo en Instagram.",
       "toast.handle":"@luzeglowstudio copiado","toast.phone":"Número copiado"
     }
@@ -733,6 +744,8 @@ section{position:relative}
     $$("[data-i18n]").forEach(function(el){ el.textContent = t(el.dataset.i18n); });
     $$("[data-i18n-aria]").forEach(function(el){ el.setAttribute("aria-label", t(el.dataset.i18nAria)); });
     $$(".lang button").forEach(function(b){ b.setAttribute("aria-pressed", String(b.dataset.lang === lang)); });
+    $$("#fTime .hr").forEach(function(b){ b.textContent = fmtHour(+b.dataset.v); });
+    $("#heroBook").href = WA + "?text=" + encodeURIComponent(t("msg.helloEmpty"));
     syncButtons();
     renderBag();
   }
@@ -831,6 +844,10 @@ section{position:relative}
       buildMessage();
     });
   });
+  function fmtHour(h){
+    var n = (h % 12) || 12;
+    return n + ":00 " + (lang === "es" ? (h < 12 ? "a. m." : "p. m.") : (h < 12 ? "AM" : "PM"));
+  }
   function fmtDate(v){
     if(!v) return "";
     var d = new Date(v + "T12:00:00");
@@ -851,7 +868,7 @@ section{position:relative}
     if(name) lines.push(t("msg.name") + ": " + name);
     if(date || time !== "any"){
       var w = date ? fmtDate(date) : t("msg.flex");
-      if(time !== "any") w += " (" + t("time." + time).toLowerCase() + ")";
+      if(time !== "any") w += " · " + fmtHour(+time);
       lines.push(t("msg.when") + ": " + w);
     }
     if(note) lines.push(t("msg.note") + ": " + note);
